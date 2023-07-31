@@ -9,12 +9,7 @@ body,
   height: 100%;
 }
 
-.main-content {
-  margin-top: 4rem; /* Adjust this value according to your header height */
-  padding-top: 0; /* Reset the padding-top to avoid conflicts */
-  position: sticky;
-  top: 4rem; /* Adjust this value to match your header height */
-}
+
 
 
 @layer base {
