@@ -7,9 +7,9 @@ import { MoreVertical } from 'lucide-react'
 const NavBar = () => {
   return (
     <div className='flex items-center justify-between mt-1 md:p-4 bg-blue-200 h-12 rounded-lg'>
-       <div>
+       <div className='flex'>
           <MobileSidebar />   
-       <p>Beradffdfed</p>
+       Beradffdfed
        </div>
      <div className='flex'>
        <Switch />

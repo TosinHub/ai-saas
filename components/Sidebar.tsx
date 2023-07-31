@@ -5,10 +5,11 @@ import Link from "next/link";
 import React, {useCallback} from "react";
 import { Montserrat } from "next/font/google";
 import {usePathname, useRouter} from "next/navigation"
+import Dropdown from "./reusable/Dropdown";
 
 
 import { cn } from "@/lib/utils";
-import {Settings, Code, Music,VideoIcon, ImageIcon, LayoutDashboard, MessageSquare, MoreVertical, Star } from "lucide-react";
+import {Settings, Code, Music,VideoIcon, ImageIcon, LayoutDashboard, MessageSquare, MoreVertical, Star, FileEdit,Trash2  } from "lucide-react";
 
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
@@ -73,8 +74,23 @@ const Sidebar = () => {
     event.stopPropagation();
     // Your more vertical icon click logic here
   }, []);
+  const actions = [{
+    name: "Edit",
+    icon: <FileEdit className="mr-2 h-4 w-4"/>,
+  },
+  {
+    name: "Delete",
+    icon: <Trash2 className="mr-2 h-4 w-4"/> ,
+  }]
+
+
   return (
-    <div className="space-y-4 py-4 flex flex-col h-full  bg-gray-900  text-white">
+    <div className="
+    
+    flex flex-col justify-between
+    bg-gray-900 text-white
+    space-y-4 py-4 
+    h-full ">
       <div className="px-3 py-2 flex-1">
         <Link href="/dashboard" className="flex items-center mb-14">
           <div className="relative w-8 h-8 mr-4">
@@ -103,7 +119,7 @@ const Sidebar = () => {
                   <div className=" flex justify-end space-x-0">
                      <Star fill="gold" onClick={handleStarClick}  className="hover:bg-gray-200 rounded-full p-1"/>
 
-                  <MoreVertical onClick={handleMoreVerticalClick}  className="hover:bg-gray-200 rounded-full"/>
+                  <Dropdown icon={<MoreVertical/>} items={actions} />
                   </div>
                  
                     </div>
