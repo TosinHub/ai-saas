@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, {useCallback} from "react";
+import React, {useCallback, useState} from "react";
 import { Montserrat } from "next/font/google";
 import {usePathname, useRouter} from "next/navigation"
 import Dropdown from "./reusable/Dropdown";
-
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "./ui/sheet";
 
 import { cn } from "@/lib/utils";
 import {Settings, Code, Music,VideoIcon, ImageIcon, LayoutDashboard, MessageSquare, MoreVertical, Star, FileEdit,Trash2  } from "lucide-react";
@@ -60,6 +60,12 @@ const routes = [
 ];
 
 const Sidebar = () => {
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  // Event handler to close the Sheet
+  const handleCloseSheet = useCallback(() => {
+    setIsSheetOpen(false);
+  }, []);
 
   const pathname = usePathname();
   const router = useRouter();
@@ -85,6 +91,8 @@ const Sidebar = () => {
 
 
   return (
+
+    
     <div className="
     
     flex flex-col justify-between

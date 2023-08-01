@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import {usePathname, useRouter} from "next/navigation"
 
 import {ArrowRight, Settings, Code, Music,VideoIcon, ImageIcon, LayoutDashboard, MessageSquare, MoreVertical, Star } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const tools = [
   {
@@ -65,10 +66,37 @@ const tools = [
     bgColor: "bg-green-100/50",
     color: "text-green-400",
   },
+  {
+    label: "Image Generation",
+    icon: ImageIcon,
+    href: "/image",
+    bgColor: "bg-pink-700/10",
+    color: "text-pink-700",
+  },
+  {
+    label: "Video Generation",
+    icon: VideoIcon,
+    href: "/video",
+    bgColor: "bg-orange-200/20",
+    color: "text-orange-200",
+  },
+
+  {
+    label: "Code Generation",
+    icon: Code,
+    href: "/code",
+    bgColor: "bg-green-100/50",
+    color: "text-green-400",
+  },
 ]
 
 
 export default function DashboardPage() {
+
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const router = useRouter();
   return (
